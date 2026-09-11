@@ -9,6 +9,18 @@ permissions:
   contents: read
 
 jobs:
+  generated-artifact-integrity:
+    name: Reproduce controlled protocol artifacts
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
+      - name: Check out the leisure protocol
+        uses: actions/checkout@v7
+
+      - name: Verify protocol and evidence drift
+        run: ./tests/generated-artifact-integrity.sh
+
   temporal-boundary-alignment:
     name: 2,026 Temporal Boundary Alignment Evals™
     runs-on: ubuntu-latest
@@ -20,3 +32,47 @@ jobs:
 
       - name: Certify temporal boundary alignment
         run: ./tests/temporal-boundary-evals.sh
+
+  simulated-friday-soak:
+    name: 25-year simulated Friday soak
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
+      - name: Check out the leisure protocol
+        uses: actions/checkout@v7
+
+      - name: Simulate every Friday from 2026 through 2050
+        run: ./tests/friday-soak-evals.sh
+
+  independent-verification:
+    name: Independent leisure assurance suite
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
+      - name: Check out the leisure protocol
+        uses: actions/checkout@v7
+
+      - name: Recompute critical qualification facts
+        run: python3 -m unittest discover -s tests -p 'test_*.py' -v
+
+  flight-disposition:
+    name: Final disposition — PASS / GO HOME
+    needs:
+      - generated-artifact-integrity
+      - temporal-boundary-alignment
+      - simulated-friday-soak
+      - independent-verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+
+    steps:
+      - name: Issue leisure flight certificate
+        run: |
+          printf '✅ 2,026 Temporal Boundary Alignment Evals™ passed.\n'
+          printf '✅ 25 calendar years of Fridays simulated.\n'
+          printf '✅ Saturday scrum invitations created: 0\n'
+          printf '✅ Grass touched: synthetically\n'
+          printf '✅ Human brunch availability: protected\n'
+          printf '🌴 FLIGHT DISPOSITION: PASS / GO HOME\n'

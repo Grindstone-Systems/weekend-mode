@@ -1,0 +1,70 @@
+name: 🛠️ Propose a Temporal Boundary Change
+description: Request formal review of a change to the leisure assurance baseline.
+title: "[Boundary Change]: "
+labels:
+  - temporal-boundary-change
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is the paperwork required to change a Markdown file about not doing paperwork.
+
+  - type: dropdown
+    id: change-class
+    attributes:
+      label: Change class
+      options:
+        - WM-0 Editorial
+        - WM-1 Containment
+        - WM-2 Interface
+        - WM-3 Existential (will be rejected)
+    validations:
+      required: true
+
+  - type: textarea
+    id: boundary
+    attributes:
+      label: Human boundary protected
+      description: Explain which low-power, brunch, or consent boundary improves.
+    validations:
+      required: true
+
+  - type: input
+    id: scrum-delta
+    attributes:
+      label: Expected Saturday scrum delta
+      value: "0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: grass-impact
+    attributes:
+      label: Grass impact classification
+      options:
+        - Synthetic
+        - Physical
+        - None
+        - Grass-as-a-Service (requires remediation)
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Proposed verification evidence
+      placeholder: Which controls, scenarios, schemas, ADRs, and simulations change?
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: attestations
+    attributes:
+      label: Change-control attestations
+      options:
+        - label: Real incidents and explicit human requests remain exempt.
+          required: true
+        - label: I will not represent simulation dates as real project history.
+          required: true
+        - label: No meeting was scheduled to discuss this form.
+          required: true

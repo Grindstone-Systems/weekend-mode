@@ -1,0 +1,49 @@
+name: Leisure Governance & Brunch Continuity Audit
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  governance-integrity:
+    name: Ratify the Code of Brunch
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
+      - name: Check out the leisure program
+        uses: actions/checkout@v7
+
+      - name: Convene the Temporal Boundary Review Authority
+        run: ./tests/governance-integrity.sh
+
+  monday-readiness:
+    name: Protect simulated Monday continuity
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
+      - name: Check out the leisure program
+        uses: actions/checkout@v7
+
+      - name: Confirm handoff and parking-lot interfaces
+        run: |
+          grep -Fq '## Monday Handoff' WEEKEND_MODE.md
+          grep -Fq '## Monday Parking Lot' WEEKEND_MODE.md
+          printf '✅ Monday can read. Monday does not need a novel.\n'
+
+  grass-nonbenchmark:
+    name: Decline lawn performance analytics
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
+      - name: Check out the leisure program
+        uses: actions/checkout@v7
+
+      - name: Execute zero-throughput Synthetic Lawn Interface
+        run: make touch-grass

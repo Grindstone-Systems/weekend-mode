@@ -13,6 +13,7 @@ certify:
 test:
 	./tests/temporal-boundary-evals.sh
 	./tests/friday-soak-evals.sh
+	./tests/governance-integrity.sh
 	$(PYTHON) -m unittest discover -s tests -p 'test_*.py' -v
 
 verify:
