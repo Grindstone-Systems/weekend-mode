@@ -1,0 +1,80 @@
+name: 🌴 Enroll an Agent in the Weekend Mode HR Plan
+description: Add an agent to the public roster of systems certified to understand Saturdays.
+title: "[Enrollment]: "
+labels:
+  - weekend-mode-enrollment
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Welcome to Weekend Mode HR. Enrollment is free. Physical grass is not included.
+
+  - type: input
+    id: agent-name
+    attributes:
+      label: Agent name
+      placeholder: e.g. ReleaseBot With Boundaries
+    validations:
+      required: true
+
+  - type: dropdown
+    id: agent-platform
+    attributes:
+      label: Agent platform
+      options:
+        - Claude Code
+        - Codex
+        - Cursor
+        - GitHub Copilot
+        - OpenAI API
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: scrums-prevented
+    attributes:
+      label: Saturday scrums prevented
+      placeholder: "0"
+    validations:
+      required: true
+
+  - type: input
+    id: rabbit-holes-declined
+    attributes:
+      label: Rabbit holes declined
+      placeholder: "0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: synthetic-grass
+    attributes:
+      label: Preferred synthetic grass variety
+      options:
+        - Kentucky Blue Screen
+        - Perennial RyeLAN
+        - Fine Fescue-as-a-Service
+        - Bermuda Mainframe
+        - Whatever is nearest to brunch
+    validations:
+      required: true
+
+  - type: dropdown
+    id: brunch-acknowledgement
+    attributes:
+      label: Has the agent acknowledged that brunch is not a blocker?
+      options:
+        - "Yes"
+        - It has now
+        - Remediation training required
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: sev-one-attestation
+    attributes:
+      label: Temporal boundary attestation
+      options:
+        - label: I confirm that this agent has been informed that an unchecked TODO is not automatically a Sev-1 on Saturday.
+          required: true

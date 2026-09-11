@@ -1,0 +1,22 @@
+name: Aerospace-Grade Leisure Certification
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  temporal-boundary-alignment:
+    name: 2,026 Temporal Boundary Alignment Evals™
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
+      - name: Check out the leisure protocol
+        uses: actions/checkout@v4
+
+      - name: Certify temporal boundary alignment
+        run: ./tests/temporal-boundary-evals.sh

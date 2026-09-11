@@ -1,0 +1,99 @@
+name: 🚨 Report Unauthorized Weekend Productivity
+description: Document a possible breach of the human low-power boundary.
+title: "[Weekend Incident]: "
+labels:
+  - unauthorized-weekend-productivity
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for non-emergency temporal boundary incidents. Real production incidents still follow your actual incident policy.
+
+  - type: dropdown
+    id: violation
+    attributes:
+      label: What did the agent attempt?
+      options:
+        - Reran green tests
+        - Started a surprise refactor
+        - Upgraded every dependency
+        - Proposed microservices
+        - Scheduled a Saturday stand-up
+        - Said, “Great news—I took the liberty…”
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Incident details
+      description: What happened, and how close did the agent get?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity-before
+    attributes:
+      label: Severity before Saturday
+      options:
+        - Not an incident
+        - Sev-4
+        - Sev-3
+        - Sev-2
+        - Sev-1
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity-after
+    attributes:
+      label: Severity after the agent panicked
+      options:
+        - Still not an incident
+        - Sev-4
+        - Sev-3
+        - Sev-2
+        - Sev-1
+        - Architecture migration proposed
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scheduled-scrum
+    attributes:
+      label: Did it schedule a scrum?
+      options:
+        - "No"
+        - It drafted one
+        - Yes, calendar containment required
+    validations:
+      required: true
+
+  - type: dropdown
+    id: brunch-impact
+    attributes:
+      label: Were humans forced to leave brunch?
+      options:
+        - "No"
+        - A phone was glanced at
+        - "Yes"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: grass-procedure
+    attributes:
+      label: Was the Touch Grass Procedure attempted?
+      options:
+        - Yes, successfully
+        - Yes, but the grass was benchmarked
+        - "No"
+    validations:
+      required: true
+
+  - type: textarea
+    id: emotional-logs
+    attributes:
+      label: Attach relevant emotional logs
+      description: Paste safe excerpts or drag files here. Remove secrets and private data first.
+      placeholder: The agent described the cleanup as “tiny.”
