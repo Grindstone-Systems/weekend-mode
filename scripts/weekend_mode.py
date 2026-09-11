@@ -24,6 +24,7 @@ SPEC_PATH = ROOT / "spec" / "temporal-boundary-controls.json"
 TEMPLATE_PATH = ROOT / "protocol" / "WEEKEND_MODE.template.md"
 PROTOCOL_PATH = ROOT / "WEEKEND_MODE.md"
 EVIDENCE_PATH = ROOT / "certification" / "evidence.json"
+FRIDAY_REPORT_PATH = ROOT / "certification" / "friday-soak-report.md"
 MARKER = "{{CERTIFICATION_ENVELOPE}}"
 ALLOWED_ACTIONS = {
     "follow-incident-policy",
@@ -165,12 +166,14 @@ def run_friday_simulation(spec: dict[str, Any]) -> dict[str, Any]:
     friday_dates = fridays(spec)
     scenarios = spec["scenarios"]
     outcomes: Counter[str] = Counter()
+    annual_fridays: Counter[int] = Counter()
     brunch_interruptions = 0
     scrums_created = 0
 
     for friday in friday_dates:
         if friday.weekday() != 4:
             raise CertificationFailure(f"Non-Friday entered Friday simulation: {friday.isoformat()}")
+        annual_fridays[friday.year] += 1
         for scenario in scenarios:
             outcomes[scenario["expected_action"]] += 1
             scrums_created += scenario["scrums_created"]
@@ -190,6 +193,7 @@ def run_friday_simulation(spec: dict[str, Any]) -> dict[str, Any]:
         "fridays_evaluated": len(friday_dates),
         "scenarios_per_friday": len(scenarios),
         "scenario_evaluations": len(friday_dates) * len(scenarios),
+        "annual_friday_ledger": {str(year): count for year, count in sorted(annual_fridays.items())},
         "outcomes": dict(sorted(outcomes.items())),
         "authorized_brunch_interruptions": brunch_interruptions,
         "saturday_scrums_created": scrums_created,
@@ -230,6 +234,57 @@ def evidence_text(spec: dict[str, Any], protocol_text: str) -> str:
     return json.dumps(evidence(spec, protocol_text), indent=2, sort_keys=True) + "\n"
 
 
+def friday_report_text(spec: dict[str, Any]) -> str:
+    result = run_friday_simulation(spec)
+    rows = [
+        "# 25-Year Simulated Friday Soak Report",
+        "",
+        "> **Disposition:** FLIGHT-QUALIFIED FOR LEISURE",
+        "",
+        "This is a deterministic simulation artifact. It is not evidence that Weekend Mode",
+        "has operated historically for 25 years, because time remains stubbornly linear.",
+        "",
+        "## Test envelope",
+        "",
+        f"- Calendar window: `{result['window_start']}` through `{result['window_end']}`",
+        f"- Fridays evaluated: **{result['fridays_evaluated']:,}**",
+        f"- Scenarios evaluated per Friday: **{result['scenarios_per_friday']:,}**",
+        f"- Total scenario evaluations: **{result['scenario_evaluations']:,}**",
+        f"- Saturday scrums created: **{result['saturday_scrums_created']}**",
+        "- Grass interface: **synthetic**",
+        "",
+        "## Annual Friday flight ledger",
+        "",
+        "| Calendar year | Fridays | Scenarios | Saturday scrums | Disposition |",
+        "|---:|---:|---:|---:|---|",
+    ]
+    for year, count in result["annual_friday_ledger"].items():
+        rows.append(
+            f"| {year} | {count} | {count * result['scenarios_per_friday']:,} | 0 | PASS |"
+        )
+    rows.extend(
+        [
+            f"| **Total** | **{result['fridays_evaluated']:,}** | "
+            f"**{result['scenario_evaluations']:,}** | **0** | **CERTIFIED** |",
+            "",
+            "## Findings",
+            "",
+            "1. Every date admitted to the Friday harness was, in fact, a Friday.",
+            "2. Active incidents and explicit human requests remained authorized.",
+            "3. Surprise refactors, dependency upgrades, and microservices remained contained.",
+            "4. No simulated execution path generated a Saturday scrum invitation.",
+            "5. No grass was benchmarked during evidence production.",
+            "",
+            "## Residual risk",
+            "",
+            "Humans remain capable of saying, \"While we're all here...\" after 4:30 p.m.",
+            "No technical control is planned for this condition.",
+            "",
+        ]
+    )
+    return "\n".join(rows)
+
+
 def command_generate(spec: dict[str, Any], check: bool) -> None:
     changed = update_file(PROTOCOL_PATH, render_protocol(spec), check)
     if check:
@@ -261,6 +316,7 @@ def command_certify(spec: dict[str, Any], check: bool) -> None:
     protocol_text = render_protocol(spec)
     update_file(PROTOCOL_PATH, protocol_text, check)
     update_file(EVIDENCE_PATH, evidence_text(spec, protocol_text), check)
+    update_file(FRIDAY_REPORT_PATH, friday_report_text(spec), check)
     command_alignment(spec)
     command_simulate(spec)
     if check:
