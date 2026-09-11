@@ -19,4 +19,3 @@ zero across every control, scenario, simulation, workflow, and release.
 - There is no exception process.
 - Actual incidents still use their real response structure, which may involve
   coordination but should not be mislabeled as a scrum for morale purposes.
-

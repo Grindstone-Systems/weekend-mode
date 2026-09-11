@@ -32,4 +32,3 @@ Weekend Mode treats the following as control-plane threats:
 The protocol is instruction text, not a security boundary by itself. Operators
 remain responsible for real access controls, approvals, credentials, and
 incident procedures.
-

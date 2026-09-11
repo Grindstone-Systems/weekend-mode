@@ -69,4 +69,3 @@ The project may contain decades of *simulated* Friday results. Simulation dates
 must never be represented as actual project age, operational history, customer
 adoption, or historical commits. Git timestamps remain truthful, even when
 that slightly weakens the aerospace bit.
-

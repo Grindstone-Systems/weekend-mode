@@ -45,4 +45,3 @@ and label it as such.
 
 See [`CODE_OF_BRUNCH.md`](CODE_OF_BRUNCH.md). It is enforceable primarily by
 closing the laptop.
-

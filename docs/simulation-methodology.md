@@ -42,4 +42,3 @@ soak test of decision consistency, not a probabilistic model of human behavior.
 - Estimating actual agent incident rates.
 - Claiming operational history before the project existed.
 - Benchmarking real or synthetic grass.
-

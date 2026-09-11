@@ -19,4 +19,3 @@ disposition: **PASS / GO HOME**.
 The real Git history is authoritative for when the project and its changes were
 created. This document exists because an absurdly mature test program is funny;
 fake provenance is not.
-

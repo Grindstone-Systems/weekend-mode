@@ -27,4 +27,3 @@ project dates; simulated Friday dates belong in certification artifacts.
 
 - No physical grass included.
 - Humans remain the primary source of scope creep.
-

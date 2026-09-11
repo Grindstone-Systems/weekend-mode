@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Grindstone-Systems/weekend-mode/schema/activation-request.schema.json",
+  "title": "Weekend Mode Activation Readiness Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "explicit_human_request",
+    "tests",
+    "production_on_fire",
+    "human_waiting_on_us",
+    "urgent_obligations",
+    "friday_energy_remaining"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "explicit_human_request": { "type": "boolean" },
+    "tests": { "enum": ["green", "red", "unknown"] },
+    "production_on_fire": { "type": "boolean" },
+    "human_waiting_on_us": { "type": "boolean" },
+    "urgent_obligations": { "type": "integer", "minimum": 0 },
+    "friday_energy_remaining": {
+      "enum": ["healthy", "limited", "suspiciously_low", "unknown"]
+    }
+  }
+}

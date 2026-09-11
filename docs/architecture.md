@@ -64,4 +64,3 @@ Certification is fail-closed. A missing phrase, stale artifact, invalid date
 window, duplicate identifier, unknown action, or nonzero scrum budget exits
 with a failure. The correct recovery action is to repair the source or park the
 idea for Monday; it is never to lower the threshold.
-

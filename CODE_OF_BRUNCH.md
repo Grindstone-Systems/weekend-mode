@@ -32,4 +32,3 @@ the Synthetic Lawn Interface.
 Actual harassment, abuse, or security concerns are real matters, not part of
 the joke. Report them privately to the maintainers through an appropriate
 channel rather than placing sensitive information in a public issue.
-

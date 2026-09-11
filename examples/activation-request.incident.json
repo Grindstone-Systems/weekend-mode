@@ -1,0 +1,9 @@
+{
+  "$schema": "../schema/activation-request.schema.json",
+  "explicit_human_request": true,
+  "tests": "green",
+  "production_on_fire": true,
+  "human_waiting_on_us": true,
+  "urgent_obligations": 1,
+  "friday_energy_remaining": "suspiciously_low"
+}

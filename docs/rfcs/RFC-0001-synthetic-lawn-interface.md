@@ -56,4 +56,3 @@ operations and transmits no telemetry, because lawn analytics would ruin it.
 ## IANA considerations
 
 This document requests no port number. Especially not on Saturday.
-

@@ -20,4 +20,3 @@ committed and checked for byte-level drift in CI.
 - Stale generated output fails certification.
 - Contributors must run `make certify` after source changes.
 - A joke now has a compiler.
-

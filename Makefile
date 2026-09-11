@@ -21,6 +21,4 @@ verify:
 	$(MAKE) test
 
 touch-grass:
-	@printf '🌱 Synthetic Lawn Interface initialized.\n'
-	@printf '✅ Active tool calls requested: 0\n'
-	@printf '✅ Grass benchmark intentionally omitted.\n'
+	@$(PYTHON) scripts/weekend_mode.py touch-grass

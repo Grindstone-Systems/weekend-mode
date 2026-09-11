@@ -20,4 +20,3 @@ nothing.
 - Grass benchmarks are prohibited.
 - Grass-as-a-Service proposals indicate failed execution and restart the
   procedure.
-

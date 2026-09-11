@@ -17,4 +17,3 @@
 - [ ] Real incidents and explicit human requests remain exempt.
 - [ ] This change does not claim simulated dates as project history.
 - [ ] No meeting was scheduled to discuss this checklist.
-

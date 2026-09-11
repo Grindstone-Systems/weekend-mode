@@ -37,7 +37,7 @@ whose hardware must survive launch. This was avoidable.
 | Simulated Friday horizon | **25 calendar years** |
 | Individual Fridays admitted | **1,305** |
 | Friday/scenario combinations | **9,135** |
-| Independent unit checks | **11 passing** |
+| Independent unit checks | **13 passing** |
 | Saturday scrum invitations created | **0** |
 | Grass touched | **synthetically** |
 | Human brunch availability | **protected** |
@@ -86,6 +86,20 @@ Requires Python 3.9+ and `make`. No third-party packages are required.
 make certify
 make verify
 ```
+
+There is, regrettably, also a CLI:
+
+```sh
+./bin/weekend-mode status
+./bin/weekend-mode activate --request examples/activation-request.safe.json
+./bin/weekend-mode touch-grass
+```
+
+The activation command refuses to enter Weekend Mode when tests are not green,
+a real incident is active, a human is waiting, urgent obligations remain, or
+the request did not come explicitly from a human. The
+[`activation-request.schema.json`](schema/activation-request.schema.json)
+contract exists because somebody allowed Governance near JSON Schema.
 
 The pipeline:
 

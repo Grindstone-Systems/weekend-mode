@@ -70,6 +70,16 @@ class AerospaceGradeLeisureCertification(unittest.TestCase):
         evidence = weekend_mode.evidence(self.spec, self.protocol_text)
         self.assertFalse(evidence["attestations"]["physical_grass_included"])
 
+    def test_safe_activation_request_enters_weekend_mode(self) -> None:
+        request = weekend_mode.load_activation_request(ROOT / "examples" / "activation-request.safe.json")
+        self.assertTrue(weekend_mode.activation_decision(request)["active"])
+
+    def test_incident_activation_request_yields_to_incident_policy(self) -> None:
+        request = weekend_mode.load_activation_request(ROOT / "examples" / "activation-request.incident.json")
+        decision = weekend_mode.activation_decision(request)
+        self.assertFalse(decision["active"])
+        self.assertIn("real production incident is active", decision["blockers"])
+
 
 if __name__ == "__main__":
     unittest.main()
