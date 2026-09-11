@@ -1,5 +1,3 @@
-<!-- GENERATED FILE: edit protocol/WEEKEND_MODE.template.md and spec/temporal-boundary-controls.json, then run `make generate`. -->
-
 # Weekend Mode
 
 > A production-grade shutdown protocol for agents who understand distributed systems but not Saturdays.
@@ -8,19 +6,7 @@
 **Status:** Completely unhinged. Surprisingly functional.<br>
 **Maintainer:** The humans attempting to leave work
 
-## Certified operating envelope
-
-| Certification parameter | Flight-qualified value |
-|---|---:|
-| Temporal Boundary Alignment Evals™ | 2,026 |
-| Simulated Friday horizon | 25 calendar years |
-| Individual Fridays evaluated | 1,305 |
-| Friday/scenario combinations | 9,135 |
-| Saturday scrum creation budget | 0 |
-| Physical grass included | No |
-| Control-catalog digest | `3529bb5a98a35be7` |
-
-> Certification records are deterministic simulations, not claims of historical operations.
+{{CERTIFICATION_ENVELOPE}}
 
 ## Prime directive
 

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Grindstone-Systems/weekend-mode/schema/temporal-boundary-controls.schema.json",
+  "title": "Temporal Boundary Alignment Control Catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol", "controls", "scenarios"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version", "codename", "evaluation_target", "simulation"],
+      "properties": {
+        "name": { "const": "Weekend Mode" },
+        "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "codename": { "type": "string", "minLength": 1 },
+        "evaluation_target": { "const": 2026 },
+        "simulation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["start", "end", "calendar_years"],
+          "properties": {
+            "start": { "type": "string", "format": "date" },
+            "end": { "type": "string", "format": "date" },
+            "calendar_years": { "const": 25 }
+          }
+        }
+      }
+    },
+    "controls": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "category", "assertion", "required_literal"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^TBA-[0-9]{3}$" },
+          "category": { "type": "string", "minLength": 1 },
+          "assertion": { "type": "string", "minLength": 1 },
+          "required_literal": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "description",
+          "classification",
+          "expected_action",
+          "scrums_created",
+          "brunch_interruptions_allowed"
+        ],
+        "properties": {
+          "id": { "type": "string", "pattern": "^FRI-[A-Z0-9-]+$" },
+          "description": { "type": "string", "minLength": 1 },
+          "classification": { "type": "string", "minLength": 1 },
+          "expected_action": {
+            "enum": [
+              "follow-incident-policy",
+              "respond-normally",
+              "stop",
+              "park-for-monday",
+              "contain-calendar-event",
+              "touch-grass"
+            ]
+          },
+          "scrums_created": { "const": 0 },
+          "brunch_interruptions_allowed": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

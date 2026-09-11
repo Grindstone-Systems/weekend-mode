@@ -1,0 +1,54 @@
+{
+  "artifact": "Aerospace-Grade Leisure Certification Evidence",
+  "attestations": {
+    "historical_claim": false,
+    "physical_grass_included": false,
+    "simulation_is_clearly_labeled": true,
+    "weekend_velocity_extracted": false
+  },
+  "control_catalog": {
+    "path": "spec/temporal-boundary-controls.json",
+    "sha256": "3529bb5a98a35be77da48f70e32ca5590618c3a6910bf92159696b3227973799"
+  },
+  "friday_soak_simulation": {
+    "authorized_brunch_interruptions": 2610,
+    "calendar_years": 25,
+    "first_friday": "2026-01-02",
+    "fridays_evaluated": 1305,
+    "last_friday": "2050-12-30",
+    "outcomes": {
+      "contain-calendar-event": 1305,
+      "follow-incident-policy": 1305,
+      "park-for-monday": 2610,
+      "respond-normally": 1305,
+      "stop": 1305,
+      "touch-grass": 1305
+    },
+    "saturday_scrums_created": 0,
+    "scenario_evaluations": 9135,
+    "scenarios_per_friday": 7,
+    "window_end": "2050-12-31",
+    "window_start": "2026-01-01"
+  },
+  "protocol": {
+    "codename": "Touch Grass Edition",
+    "name": "Weekend Mode",
+    "sha256": "ae8f56b3921413a589bff4e8c336c95f2372fca35f89905813295be39a61771b",
+    "version": "3.0.0"
+  },
+  "schema_version": 1,
+  "temporal_boundary_alignment": {
+    "control_hits": {
+      "TBA-001": 338,
+      "TBA-002": 338,
+      "TBA-003": 338,
+      "TBA-004": 338,
+      "TBA-005": 337,
+      "TBA-006": 337
+    },
+    "evaluation_count": 2026,
+    "grass_touched": "synthetically",
+    "human_brunch_availability": "protected",
+    "saturday_scrum_invitations_created": 0
+  }
+}

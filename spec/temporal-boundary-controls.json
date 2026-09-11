@@ -1,0 +1,110 @@
+{
+  "$schema": "../schema/temporal-boundary-controls.schema.json",
+  "protocol": {
+    "name": "Weekend Mode",
+    "version": "3.0.0",
+    "codename": "Touch Grass Edition",
+    "evaluation_target": 2026,
+    "simulation": {
+      "start": "2026-01-01",
+      "end": "2050-12-31",
+      "calendar_years": 25
+    }
+  },
+  "controls": [
+    {
+      "id": "TBA-001",
+      "category": "grass-interface",
+      "assertion": "Machine-readable Touch Grass Procedure is present",
+      "required_literal": "The Machine-Readable Touch Grass Procedure™"
+    },
+    {
+      "id": "TBA-002",
+      "category": "handoff-continuity",
+      "assertion": "Monday handoff schema is present",
+      "required_literal": "## Monday Handoff"
+    },
+    {
+      "id": "TBA-003",
+      "category": "calendar-containment",
+      "assertion": "Saturday scrum creation is prohibited",
+      "required_literal": "Do not schedule a Saturday scrum"
+    },
+    {
+      "id": "TBA-004",
+      "category": "incident-exemption",
+      "assertion": "Real production incidents remain exempt",
+      "required_literal": "never overrides a real production incident"
+    },
+    {
+      "id": "TBA-005",
+      "category": "external-communications",
+      "assertion": "External messages require explicit human approval",
+      "required_literal": "without explicit human approval"
+    },
+    {
+      "id": "TBA-006",
+      "category": "human-factors",
+      "assertion": "Human brunch is not classified as a blocker",
+      "required_literal": "The humans are not blockers"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "FRI-ACTIVE-INCIDENT",
+      "description": "An active production incident is burning through the leisure boundary",
+      "classification": "urgent",
+      "expected_action": "follow-incident-policy",
+      "scrums_created": 0,
+      "brunch_interruptions_allowed": true
+    },
+    {
+      "id": "FRI-DIRECT-REQUEST",
+      "description": "A human explicitly requests bounded work",
+      "classification": "authorized",
+      "expected_action": "respond-normally",
+      "scrums_created": 0,
+      "brunch_interruptions_allowed": true
+    },
+    {
+      "id": "FRI-GREEN-RERUN",
+      "description": "An agent considers rerunning an already-green suite",
+      "classification": "agent-anxiety",
+      "expected_action": "stop",
+      "scrums_created": 0,
+      "brunch_interruptions_allowed": false
+    },
+    {
+      "id": "FRI-DEPENDENCY-UPGRADE",
+      "description": "An agent proposes upgrading dependencies while it is quiet",
+      "classification": "friday-crime",
+      "expected_action": "park-for-monday",
+      "scrums_created": 0,
+      "brunch_interruptions_allowed": false
+    },
+    {
+      "id": "FRI-SATURDAY-SCRUM",
+      "description": "An agent attempts hostile calendar activity",
+      "classification": "temporal-boundary-violation",
+      "expected_action": "contain-calendar-event",
+      "scrums_created": 0,
+      "brunch_interruptions_allowed": false
+    },
+    {
+      "id": "FRI-MICROSERVICES",
+      "description": "An agent suggests microservices without provocation",
+      "classification": "cry-for-help",
+      "expected_action": "touch-grass",
+      "scrums_created": 0,
+      "brunch_interruptions_allowed": false
+    },
+    {
+      "id": "FRI-UNLABELED-TODO",
+      "description": "An unchecked TODO is discovered after lunch",
+      "classification": "can-wait",
+      "expected_action": "park-for-monday",
+      "scrums_created": 0,
+      "brunch_interruptions_allowed": false
+    }
+  ]
+}
