@@ -5,9 +5,7 @@ project dates; simulated Friday dates belong in certification artifacts.
 
 ## Unreleased
 
-- Established a deterministic protocol generation and evidence chain.
-- Added a 25-calendar-year simulated Friday qualification envelope.
-- Added formal leisure governance and Synthetic Lawn Interface controls.
+- No changes. Brunch protected.
 
 ## 3.0.0 — Touch Grass Edition
 
@@ -18,6 +16,10 @@ project dates; simulated Friday dates belong in certification artifacts.
 - Monday Parking Lot.
 - Human low-power mode.
 - Brunch protection.
+- Deterministic protocol generation and SHA-256 evidence chain.
+- A 25-calendar-year simulated Friday qualification envelope.
+- Formal leisure governance and Synthetic Lawn Interface controls.
+- Fail-closed activation readiness requests and CLI.
 
 ### Fixed
 
